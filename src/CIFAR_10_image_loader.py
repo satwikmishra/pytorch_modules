@@ -29,24 +29,21 @@ class ImageDataLoader(DataLoader):
         self.classes = None
 
         
-	self.train_loader = datasets.CIFAR10(
-		self.data_dir,
-		train=True,
-		download=True,
-		transform=get_augmentation(train_transforms)
-		# transform=transforms.build_transforms(train=True)
+        self.train_loader = datasets.CIFAR10(
+          self.data_dir,
+          train=True,
+          download=True,
+          transform=get_augmentation(train_transforms)
+          # transform=transforms.build_transforms(train=True)
+            )
+        self.test_loader = datasets.CIFAR10(
+          self.data_dir,
+          train=False,
+          download=True,
+          # transform=transforms.build_transforms(train=False)
+          transform=get_augmentation(test_transforms)
 	    )
-	self.test_loader = datasets.CIFAR10(
-		self.data_dir,
-		train=False,
-		download=True,
-		# transform=transforms.build_transforms(train=False)
-		transform=get_augmentation(test_transforms)
-	    )
-	self.classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog',
-			    'horse', 'ship', 'truck')
-	self.train_loader = DataLoader(self.train_loader, shuffle=shuffle, **self.init_kwargs)
-	self.test_loader = DataLoader(self.test_loader, **self.init_kwargs)
-
-       
-        
+        self.classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog',
+                'horse', 'ship', 'truck')
+        self.train_loader = DataLoader(self.train_loader, shuffle=shuffle, **self.init_kwargs)
+        self.test_loader = DataLoader(self.test_loader, **self.init_kwargs)
