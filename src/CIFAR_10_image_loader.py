@@ -24,8 +24,6 @@ class ImageDataLoader(DataLoader):
 
         self.classes = None
 
-        
-
 	self.train_loader = datasets.CIFAR10(
 		self.data_dir,
 		train=True,
