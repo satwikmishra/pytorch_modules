@@ -6,13 +6,10 @@ from torchvision import datasets
 import torch
 import matplotlib.pyplot as plt
 import numpy as np
-import albumentations as A
-from albumentations.pytorch import ToTensorV2
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torchvision import datasets, transforms
 
 class ImageDataLoader(DataLoader):
     """
